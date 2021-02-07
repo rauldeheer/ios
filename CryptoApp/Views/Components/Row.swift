@@ -20,6 +20,7 @@ struct Row: View {
       ZStack {
         Text((coin.positiveChange ? "+" : "") + coin.change + "%")
             .foregroundColor(.white)
+            .fontWeight(.semibold)
             .frame(width: 90)
       }
           .background(coin.positiveChange ? Color.green : Color.red)

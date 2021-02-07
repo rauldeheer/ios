@@ -4,10 +4,8 @@ struct HomeView: View {
   @ObservedObject private var viewModel = HomeViewModel()
 
   var body: some View {
-    List {
-      ForEach(viewModel.coins, id: \.id) { coin in
-        Row(coin: coin)
-      }
+    List(viewModel.coins, id: \.id) { coin in
+      Row(coin: coin)
     }
   }
 }

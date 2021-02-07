@@ -13,10 +13,8 @@ struct FavoritesView: View {
         Spacer()
       }
     } else {
-      List {
-        ForEach(favoriteViewModel.coins, id: \.id) { coin in
-          Row(coin: coin)
-        }
+      List(favoriteViewModel.coins, id: \.id) { coin in
+        Row(coin: coin)
       }
     }
   }

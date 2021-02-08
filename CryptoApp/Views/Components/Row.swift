@@ -6,31 +6,29 @@ struct Row: View {
   let coin: CryptoModel
 
   var body: some View {
-    HStack {
-      VStack(alignment: .leading) {
-        Text(coin.name)
+    NavigationLink(destination: CryptoDetailPage(coin: coin)) {
+      HStack {
+        VStack(alignment: .leading) {
+          Text(coin.name)
 
-        Text(coin.symbol)
-            .fontWeight(.light)
-            .font(.caption)
+          Text(coin.symbol)
+              .fontWeight(.light)
+              .font(.caption)
+        }
+
+        Spacer()
+
+        ZStack {
+          Text((coin.positiveChange ? "+" : "") + coin.change + "%")
+              .foregroundColor(.white)
+              .fontWeight(.semibold)
+              .frame(width: 90)
+        }
+            .background(coin.positiveChange ? Color.green : Color.red)
+            .cornerRadius(3.5)
+
+        FavoriteButton(toggle: { favoriteViewModel.toggleFavorite(coin) }, isFavorite: favoriteViewModel.contains(coin))
       }
-
-      Spacer()
-
-      ZStack {
-        Text((coin.positiveChange ? "+" : "") + coin.change + "%")
-            .foregroundColor(.white)
-            .fontWeight(.semibold)
-            .frame(width: 90)
-      }
-          .background(coin.positiveChange ? Color.green : Color.red)
-          .cornerRadius(3.5)
-
-      Button(action: { favoriteViewModel.toggleFavorite(coin) }) {
-        Image(systemName: favoriteViewModel.contains(coin) ? "star.fill" : "star")
-            .foregroundColor(favoriteViewModel.contains(coin) ? .yellow : .none)
-      }
-          .buttonStyle(BorderlessButtonStyle())
     }
   }
 }

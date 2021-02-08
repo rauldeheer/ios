@@ -14,11 +14,11 @@ class FavoriteViewModel: ObservableObject {
     contains(coin) ? remove(coin) : add(coin)
   }
 
-  func add(_ coin: CryptoModel) {
+  func add(_ coin: CryptoModel) -> Void {
     coins = favoriteService.add(coins, coin: coin)
   }
 
-  func remove(_ coin: CryptoModel) {
+  func remove(_ coin: CryptoModel) -> Void {
     coins = favoriteService.remove(coins, coin: coin)
   }
 

@@ -23,6 +23,11 @@ struct CryptoModel {
     coin
   }
 
+  var price: String {
+    let amount = Int(floor(coin.quote.USD.price * 100)) % 100
+    return String(format: "%.\(amount > 6 ? 6 : amount)f", coin.quote.USD.price)
+  }
+
   var change: String {
     String(format: "%.2f", coin.quote.USD.percentChange7d)
   }

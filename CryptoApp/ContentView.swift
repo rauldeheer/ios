@@ -6,7 +6,7 @@ struct ContentView: View {
 
   var body: some View {
     TabView(selection: $selection) {
-      Tab(icon: "house", tag: 0, label: "Home", navigationTitle: "All coins") {
+      Tab(icon: "bitcoinsign.circle", tag: 0, label: "All", navigationTitle: "All coins") {
         HomeView()
       }
 

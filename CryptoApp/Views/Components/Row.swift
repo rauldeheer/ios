@@ -6,7 +6,7 @@ struct Row: View {
   let coin: CryptoModel
 
   var body: some View {
-    NavigationLink(destination: CryptoDetailPage(coin: coin)) {
+    NavigationLink(destination: CryptoDetailView(coin: coin)) {
       HStack {
         VStack(alignment: .leading) {
           Text(coin.name)

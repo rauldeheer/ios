@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CryptoDetailPage: View {
+struct CryptoDetailView: View {
   @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
 
   var coin: CryptoModel
@@ -22,9 +22,9 @@ struct CryptoDetailPage: View {
   }
 }
 
-struct CryptoDetailPage_Previews: PreviewProvider {
+struct CryptoDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    CryptoDetailPage(coin: CryptoModel(
+    CryptoDetailView(coin: CryptoModel(
         CryptoContainer(
             id: 1,
             name: "Bitcoin",

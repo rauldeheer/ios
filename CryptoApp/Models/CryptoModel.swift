@@ -24,8 +24,8 @@ struct CryptoModel {
   }
 
   var price: String {
-    let amount = Int(floor(coin.quote.USD.price * 100)) % 100
-    return String(format: "%.\(amount > 6 ? 6 : amount)f", coin.quote.USD.price)
+    let priceSplit = String(coin.quote.USD.price).split(separator: ".")
+    return String(format: "%.\(priceSplit[0].prefix(1) != "0" ? 2 : 6)f", coin.quote.USD.price)
   }
 
   var change: String {

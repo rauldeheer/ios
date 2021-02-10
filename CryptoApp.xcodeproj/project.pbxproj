@@ -22,7 +22,7 @@
 		7211A5E4897C8F1132CFCE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7211A257EFEEEFA1A5E7A67F /* Assets.xcassets */; };
 		7211A7726F3F831370B8B9E0 /* ResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A7D06A8546CFF29D583B /* ResponseContainer.swift */; };
 		7211AA627F2AA586D2CD2CFE /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A50D61C66BEFC00F600E /* CryptoService.swift */; };
-		7211ABD915BA40001BDA2705 /* CryptoDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A704CC40231D635D2D79 /* CryptoDetailPage.swift */; };
+		7211ABD915BA40001BDA2705 /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A704CC40231D635D2D79 /* CryptoDetailView.swift */; };
 		7211AD49915D83B013468747 /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A3F5D7FD9CED99C3BEB8 /* CryptoModel.swift */; };
 		7211AE148B9AAAF4589103D0 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A9D6992F7D9E809F537B /* Tab.swift */; };
 		7211AF4C59FEC3D0D93BA190 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A1928450773A10B17141 /* FavoriteService.swift */; };
@@ -44,7 +44,7 @@
 		7211A3F5D7FD9CED99C3BEB8 /* CryptoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
 		7211A50D61C66BEFC00F600E /* CryptoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoService.swift; sourceTree = "<group>"; };
 		7211A6DAA2BB2C85C9868E06 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		7211A704CC40231D635D2D79 /* CryptoDetailPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDetailPage.swift; sourceTree = "<group>"; };
+		7211A704CC40231D635D2D79 /* CryptoDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDetailView.swift; sourceTree = "<group>"; };
 		7211A7D06A8546CFF29D583B /* ResponseContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseContainer.swift; sourceTree = "<group>"; };
 		7211A9B57B8966180833D57C /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		7211A9D6992F7D9E809F537B /* Tab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				7211A95E33B558E6E2B50C17 /* Components */,
 				7211A6DAA2BB2C85C9868E06 /* HomeView.swift */,
 				7211A360FAE043EF0B1599B7 /* FavoritesView.swift */,
-				7211A704CC40231D635D2D79 /* CryptoDetailPage.swift */,
+				7211A704CC40231D635D2D79 /* CryptoDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 				7211A06F90DA81974C009A59 /* FavoriteViewModel.swift in Sources */,
 				7211A2FEC8963D8EFF2914C8 /* UsdContainer.swift in Sources */,
 				7211A0ED09E0FDA32929A706 /* QuoteContainer.swift in Sources */,
-				7211ABD915BA40001BDA2705 /* CryptoDetailPage.swift in Sources */,
+				7211ABD915BA40001BDA2705 /* CryptoDetailView.swift in Sources */,
 				7211A0AAEF19C1D09A781F0F /* FavoriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

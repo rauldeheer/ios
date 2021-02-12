@@ -10,6 +10,7 @@
 		7211A02F4713D56E877E43AB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A072B43082576E5C6E85 /* HomeViewModel.swift */; };
 		7211A06F90DA81974C009A59 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A3969A1D8C9B1842CB25 /* FavoriteViewModel.swift */; };
 		7211A0AAEF19C1D09A781F0F /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A034C45229F02C495604 /* FavoriteButton.swift */; };
+		7211A0BC21E9C7AB8ADBC8E1 /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A8995DB079BE4F95E58C /* SortModel.swift */; };
 		7211A0DC52F198FB7F3526D7 /* CryptoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A30BB35AB6AC1C514013 /* CryptoContainer.swift */; };
 		7211A0ED09E0FDA32929A706 /* QuoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A27DBBE0E779FBCEE079 /* QuoteContainer.swift */; };
 		7211A1AE8B354C20AB43A2E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211AEC6D4AA3B5455B9F88F /* ContentView.swift */; };
@@ -25,6 +26,7 @@
 		7211ABD915BA40001BDA2705 /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A704CC40231D635D2D79 /* CryptoDetailView.swift */; };
 		7211AD49915D83B013468747 /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A3F5D7FD9CED99C3BEB8 /* CryptoModel.swift */; };
 		7211AE148B9AAAF4589103D0 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A9D6992F7D9E809F537B /* Tab.swift */; };
+		7211AEAEA985D71C830E0B01 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A2AD344A398FD318ADDC /* Popover.swift */; };
 		7211AF4C59FEC3D0D93BA190 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A1928450773A10B17141 /* FavoriteService.swift */; };
 		7211AF74E6848930CA7A1DFD /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A360FAE043EF0B1599B7 /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +39,7 @@
 		7211A257EFEEEFA1A5E7A67F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7211A27DBBE0E779FBCEE079 /* QuoteContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteContainer.swift; sourceTree = "<group>"; };
 		7211A2A7A82DBDE47A5CF286 /* CryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7211A2AD344A398FD318ADDC /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		7211A30BB35AB6AC1C514013 /* CryptoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoContainer.swift; sourceTree = "<group>"; };
 		7211A31A2330102844C01714 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7211A360FAE043EF0B1599B7 /* FavoritesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		7211A6DAA2BB2C85C9868E06 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7211A704CC40231D635D2D79 /* CryptoDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDetailView.swift; sourceTree = "<group>"; };
 		7211A7D06A8546CFF29D583B /* ResponseContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseContainer.swift; sourceTree = "<group>"; };
+		7211A8995DB079BE4F95E58C /* SortModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 		7211A9B57B8966180833D57C /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		7211A9D6992F7D9E809F537B /* Tab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		7211AC8F8C78934635BD8F01 /* CryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppApp.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			children = (
 				7211A813C5F624B0EBF2CF3D /* Containers */,
 				7211A3F5D7FD9CED99C3BEB8 /* CryptoModel.swift */,
+				7211A8995DB079BE4F95E58C /* SortModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 				7211A9D6992F7D9E809F537B /* Tab.swift */,
 				7211A9B57B8966180833D57C /* Row.swift */,
 				7211A034C45229F02C495604 /* FavoriteButton.swift */,
+				7211A2AD344A398FD318ADDC /* Popover.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 				7211A0ED09E0FDA32929A706 /* QuoteContainer.swift in Sources */,
 				7211ABD915BA40001BDA2705 /* CryptoDetailView.swift in Sources */,
 				7211A0AAEF19C1D09A781F0F /* FavoriteButton.swift in Sources */,
+				7211AEAEA985D71C830E0B01 /* Popover.swift in Sources */,
+				7211A0BC21E9C7AB8ADBC8E1 /* SortModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

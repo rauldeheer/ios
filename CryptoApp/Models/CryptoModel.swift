@@ -25,7 +25,7 @@ struct CryptoModel {
 
   var price: String {
     let priceSplit = String(coin.quote.USD.price).split(separator: ".")
-    return String(format: "Current price: $%.\(priceSplit[0].prefix(1) != "0" ? 2 : 6)f", coin.quote.USD.price)
+    return String(format: "$%.\(priceSplit[0].prefix(1) != "0" ? 2 : 6)f", coin.quote.USD.price)
   }
 
   var change: String {
@@ -35,5 +35,33 @@ struct CryptoModel {
 
   var positiveChange: Bool {
     coin.quote.USD.percentChange7d >= 0
+  }
+
+  var marketPairs: String {
+    String(coin.marketPairs)
+  }
+
+  var totalSupply: String {
+    guard let supply = coin.circulatingSupply else {
+      return ""
+    }
+
+    return String(supply)
+  }
+
+  var maxSupply: String {
+    guard let supply = coin.maxSupply else {
+      return ""
+    }
+
+    return String(supply)
+  }
+
+  var rank: String {
+    String(coin.rank)
+  }
+
+  var totalAndMaxSupply: String {
+    "\(totalSupply)/\(maxSupply)"
   }
 }

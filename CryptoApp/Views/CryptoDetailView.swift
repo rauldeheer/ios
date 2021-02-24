@@ -3,6 +3,7 @@ import SwiftUI
 struct CryptoDetailView: View {
   @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
   @ObservedObject private var viewModel = DetailViewModel()
+  @State private var portfolioOpen = false
 
   var coin: CryptoModel
   var favoriteView: Bool
@@ -15,19 +16,41 @@ struct CryptoDetailView: View {
   var body: some View {
     Group {
       if !favoriteView || viewModel.coin != nil {
-        let currentCoin: CryptoModel = favoriteView ? viewModel.coin! : coin
+        let currentCoin: CryptoModel = favoriteView && viewModel.coin != nil ? viewModel.coin! : coin
 
-        VStack {
-          HStack {
-            Text(currentCoin.price)
+        List {
+          InformationEntry(icon: "chevron.up.chevron.down", label: "Ranking", value: currentCoin.rank)
 
-            Spacer()
+          InformationEntry(icon: "seal", label: "Symbol", value: currentCoin.symbol)
+
+          InformationEntry(icon: "dollarsign.circle", label: "Price", value: currentCoin.price)
+
+          InformationEntry(icon: "arrow.triangle.2.circlepath", label: "Circulating", value: currentCoin.totalSupply)
+
+          InformationEntry(icon: "multiply", label: "Max", value: currentCoin.maxSupply)
+
+          InformationEntry(icon: "number", label: "Pairs", value: currentCoin.marketPairs)
+
+          Section(header: Text("Portfolio")) {
+            InformationEntry(icon: "number", label: "Quantity", value: currentCoin.marketPairs)
+
+            InformationEntry(icon: "line.diagonal.arrow", label: "Value", value: currentCoin.marketPairs)
+
+            HStack {
+              Spacer()
+
+              Button(action: { portfolioOpen.toggle() }) {
+                Text("Update portfolio")
+              }
+
+              Spacer()
+            }
+             .sheet(isPresented: $portfolioOpen, onDismiss: { portfolioOpen = false }) {
+               PortfolioSheet(coin: currentCoin)
+             }
           }
-              .padding(.horizontal)
-              .padding(.vertical, 10)
-
-          Spacer()
         }
+            .listStyle(InsetGroupedListStyle())
       } else {
         ProgressView()
       }
@@ -51,6 +74,10 @@ struct CryptoDetailView_Previews: PreviewProvider {
             id: 1,
             name: "Bitcoin",
             symbol: "BTC",
+            circulatingSupply: 200,
+            maxSupply: 230,
+            marketPairs: 200,
+            rank: 1,
             quote: QuoteContainer(
                 USD: UsdContainer(
                     percentChange7d: 15.0,

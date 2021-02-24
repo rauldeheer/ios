@@ -3,9 +3,13 @@ import Combine
 
 final class ApiService {
   func receiveData<T: Decodable>(_ url: URL, method: String = "GET") -> AnyPublisher<T, Error> {
+    guard let apiKey = ProcessInfo.processInfo.environment["api_key"] else {
+      fatalError("Please specify a API key")
+    }
+
     var request = URLRequest(url: url)
     request.httpMethod = method
-    request.addValue("12eec904-28cc-46e5-b508-d291a26d33e2", forHTTPHeaderField: "X-CMC_PRO_API_KEY")
+    request.addValue(apiKey, forHTTPHeaderField: "X-CMC_PRO_API_KEY")
 
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase

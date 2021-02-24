@@ -29,7 +29,8 @@ struct CryptoModel {
   }
 
   var change: String {
-    String(format: "%.2f", coin.quote.USD.percentChange7d)
+    let change = String(format: "%.2f", coin.quote.USD.percentChange7d)
+    return "\(positiveChange ? "+" : "")\(change)%"
   }
 
   var positiveChange: Bool {

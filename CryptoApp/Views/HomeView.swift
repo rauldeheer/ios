@@ -12,6 +12,7 @@ struct HomeView: View {
         List(viewModel.coins, id: \.id) { coin in
           Row(coin)
         }
+            .id(UUID())
       }
     }
         .navigationBarItems(leading: leading(), trailing: trailing())

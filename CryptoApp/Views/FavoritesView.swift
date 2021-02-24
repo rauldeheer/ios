@@ -16,6 +16,7 @@ struct FavoritesView: View {
       List(favoriteViewModel.coins, id: \.id) { coin in
         Row(coin, favoriteView: true)
       }
+          .id(UUID())
     }
   }
 }

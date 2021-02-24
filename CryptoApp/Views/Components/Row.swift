@@ -32,7 +32,7 @@ struct Row: View {
                 Spacer()
 
                 ZStack {
-                  Text((coin.positiveChange ? "+" : "") + coin.change + "%")
+                  Text(coin.change)
                       .foregroundColor(.white)
                       .font(.system(size: min(geometry.size.height, geometry.size.width) * 0.4))
                       .fontWeight(.semibold)

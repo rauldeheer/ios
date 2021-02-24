@@ -60,8 +60,4 @@ struct CryptoModel {
   var rank: String {
     String(coin.rank)
   }
-
-  var totalAndMaxSupply: String {
-    "\(totalSupply)/\(maxSupply)"
-  }
 }

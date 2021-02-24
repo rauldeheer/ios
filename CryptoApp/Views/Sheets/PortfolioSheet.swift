@@ -1,9 +1,17 @@
 import SwiftUI
 
 struct PortfolioSheet: View {
-  @State private var quantity = ""
+  @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
+  @State private var quantity: String
 
-  let coin: CryptoModel
+  private let coin: CryptoModel
+  @Binding var isPresented: Bool
+
+  init(coin: CryptoModel, isPresented: Binding<Bool>) {
+    self.coin = coin
+    self.isPresented = isPresented
+    quantity = favoriteViewModel.getPortfolioBy(coin)
+  }
 
   var body: some View {
     NavigationView {
@@ -24,32 +32,29 @@ struct PortfolioSheet: View {
       }
           .navigationTitle("Portfolio")
           .navigationBarTitleDisplayMode(.inline)
-          .navigationBarItems(trailing: Button(action: { print("done") }) {
+          .navigationBarItems(trailing: Button(action: { update() }) {
             Text("Update")
           })
     }
+  }
+
+  private func update() {
+    favoriteViewModel.setPortfolioFor(coin, amount: quantity)
+    isPresented = false
   }
 }
 
 struct PortfolioSheet_Previews: PreviewProvider {
   static var previews: some View {
-    PortfolioSheet(coin: CryptoModel(
-        CryptoContainer(
-            id: 1,
-            name: "Bitcoin",
-            symbol: "BTC",
-            circulatingSupply: 200,
-            maxSupply: 230,
-            marketPairs: 200,
-            rank: 1,
-            quote: QuoteContainer(
-                USD: UsdContainer(
-                    percentChange7d: 15.0,
-                    price: 200.0
-                )
-            )
-        )
-    ))
+    PreviewWrapper()
+  }
+
+  struct PreviewWrapper: View {
+    @State var isPresented = false
+
+    var body: some View {
+      PortfolioSheet()
+    }
   }
 }
 

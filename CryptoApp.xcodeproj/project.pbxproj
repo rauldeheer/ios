@@ -23,6 +23,8 @@
 		7211A5E4897C8F1132CFCE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7211A257EFEEEFA1A5E7A67F /* Assets.xcassets */; };
 		7211A6951ECDBA8900379D95 /* InformationEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A09A45B6B6D249B75FE3 /* InformationEntry.swift */; };
 		7211A7726F3F831370B8B9E0 /* ResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A7D06A8546CFF29D583B /* ResponseContainer.swift */; };
+		7211A7F61FE5256D6ABEFCAF /* PortfolioContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211AC132FCACAF82A9CBF91 /* PortfolioContainer.swift */; };
+		7211A94F2C4D07012AE29A58 /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211AFB30EB96B4D1A7AA5CC /* PortfolioService.swift */; };
 		7211AA627F2AA586D2CD2CFE /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A50D61C66BEFC00F600E /* CryptoService.swift */; };
 		7211ABD915BA40001BDA2705 /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A704CC40231D635D2D79 /* CryptoDetailView.swift */; };
 		7211AC14E383B3CB156109EF /* PortfolioSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211AA0B1D01C92CCE851F93 /* PortfolioSheet.swift */; };
@@ -57,11 +59,13 @@
 		7211A9B57B8966180833D57C /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		7211A9D6992F7D9E809F537B /* Tab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		7211AA0B1D01C92CCE851F93 /* PortfolioSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioSheet.swift; sourceTree = "<group>"; };
+		7211AC132FCACAF82A9CBF91 /* PortfolioContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioContainer.swift; sourceTree = "<group>"; };
 		7211AC8F8C78934635BD8F01 /* CryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppApp.swift; sourceTree = "<group>"; };
 		7211AD401817E764FF08BC43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		7211ADC3042FDA25287ACFBD /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		7211ADCFF4438140EDFFBF46 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		7211AEC6D4AA3B5455B9F88F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7211AFB30EB96B4D1A7AA5CC /* PortfolioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				7211A7D06A8546CFF29D583B /* ResponseContainer.swift */,
 				7211A12B38650FB7DCE0426B /* UsdContainer.swift */,
 				7211A27DBBE0E779FBCEE079 /* QuoteContainer.swift */,
+				7211AC132FCACAF82A9CBF91 /* PortfolioContainer.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				7211ADC3042FDA25287ACFBD /* ApiService.swift */,
 				7211A50D61C66BEFC00F600E /* CryptoService.swift */,
 				7211A1928450773A10B17141 /* FavoriteService.swift */,
+				7211AFB30EB96B4D1A7AA5CC /* PortfolioService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -279,6 +285,8 @@
 				7211AEE9F9CA56EF8B25D0EF /* DetailViewModel.swift in Sources */,
 				7211A6951ECDBA8900379D95 /* InformationEntry.swift in Sources */,
 				7211AC14E383B3CB156109EF /* PortfolioSheet.swift in Sources */,
+				7211A94F2C4D07012AE29A58 /* PortfolioService.swift in Sources */,
+				7211A7F61FE5256D6ABEFCAF /* PortfolioContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

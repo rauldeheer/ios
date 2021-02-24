@@ -46,7 +46,7 @@ struct CryptoDetailView: View {
               Spacer()
             }
              .sheet(isPresented: $portfolioOpen, onDismiss: { portfolioOpen = false }) {
-               PortfolioSheet(coin: currentCoin)
+               PortfolioSheet(coin: currentCoin, isPresented: $portfolioOpen)
              }
           }
         }

@@ -4,28 +4,50 @@ struct Row: View {
   @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
 
   let coin: CryptoModel
+  let favoriteView: Bool
+
+  init(_ coin: CryptoModel, favoriteView: Bool = false) {
+    self.coin = coin
+    self.favoriteView = favoriteView
+  }
 
   var body: some View {
-    NavigationLink(destination: CryptoDetailView(coin: coin)) {
+    NavigationLink(destination: CryptoDetailView(coin, favoriteView: favoriteView)) {
       HStack {
         VStack(alignment: .leading) {
           Text(coin.name)
+              .lineLimit(1)
 
           Text(coin.symbol)
               .fontWeight(.light)
               .font(.caption)
         }
 
-        Spacer()
+        if !favoriteView {
+          GeometryReader { geometry in
+            HStack {
+              Spacer()
 
-        ZStack {
-          Text((coin.positiveChange ? "+" : "") + coin.change + "%")
-              .foregroundColor(.white)
-              .fontWeight(.semibold)
-              .frame(width: 90)
+              VStack {
+                Spacer()
+
+                ZStack {
+                  Text((coin.positiveChange ? "+" : "") + coin.change + "%")
+                      .foregroundColor(.white)
+                      .font(.system(size: min(geometry.size.height, geometry.size.width) * 0.4))
+                      .fontWeight(.semibold)
+                      .frame(width: 90)
+                }
+                    .background(coin.positiveChange ? Color.green : Color.red)
+                    .cornerRadius(3.5)
+
+                Spacer()
+              }
+            }
+          }
+        } else {
+          Spacer()
         }
-            .background(coin.positiveChange ? Color.green : Color.red)
-            .cornerRadius(3.5)
 
         FavoriteButton(toggle: { favoriteViewModel.toggleFavorite(coin) }, isFavorite: favoriteViewModel.contains(coin))
       }

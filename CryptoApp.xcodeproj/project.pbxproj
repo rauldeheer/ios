@@ -27,6 +27,7 @@
 		7211AD49915D83B013468747 /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A3F5D7FD9CED99C3BEB8 /* CryptoModel.swift */; };
 		7211AE148B9AAAF4589103D0 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A9D6992F7D9E809F537B /* Tab.swift */; };
 		7211AEAEA985D71C830E0B01 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A2AD344A398FD318ADDC /* Popover.swift */; };
+		7211AEE9F9CA56EF8B25D0EF /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211ADCFF4438140EDFFBF46 /* DetailViewModel.swift */; };
 		7211AF4C59FEC3D0D93BA190 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A1928450773A10B17141 /* FavoriteService.swift */; };
 		7211AF74E6848930CA7A1DFD /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211A360FAE043EF0B1599B7 /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		7211AC8F8C78934635BD8F01 /* CryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppApp.swift; sourceTree = "<group>"; };
 		7211AD401817E764FF08BC43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		7211ADC3042FDA25287ACFBD /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		7211ADCFF4438140EDFFBF46 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		7211AEC6D4AA3B5455B9F88F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			children = (
 				7211A072B43082576E5C6E85 /* HomeViewModel.swift */,
 				7211A3969A1D8C9B1842CB25 /* FavoriteViewModel.swift */,
+				7211ADCFF4438140EDFFBF46 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				7211A0AAEF19C1D09A781F0F /* FavoriteButton.swift in Sources */,
 				7211AEAEA985D71C830E0B01 /* Popover.swift in Sources */,
 				7211A0BC21E9C7AB8ADBC8E1 /* SortModel.swift in Sources */,
+				7211AEE9F9CA56EF8B25D0EF /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

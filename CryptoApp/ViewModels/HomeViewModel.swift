@@ -38,14 +38,14 @@ class HomeViewModel: ObservableObject {
     sorter.slug == self.sorter.slug
   }
 
-  func selectNewSorter(newSorter: SortModel) -> Void {
+  func selectNewSorter(_ newSorter: SortModel) -> Void {
     sorter = newSorter
   }
 
   private func getCoins() -> Void {
     coins = []
 
-    cancellable = cryptoService.getLatestListings(sorter: sorter, sortDesc: sortDesc).sink(receiveCompletion: { completion in
+    cancellable = cryptoService.getLatestListings(sorter, desc: sortDesc).sink(receiveCompletion: { completion in
       print("home \(completion)")
     }, receiveValue: { cryptoContainers in
       self.coins = cryptoContainers.data.map { cryptoContainer in

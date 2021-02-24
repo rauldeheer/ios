@@ -11,11 +11,12 @@ final class ApiService {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
 
     return URLSession.shared.dataTaskPublisher(for: request)
+        .receive(on: DispatchQueue.global())
         .map { response in
           response.data
         }
-        .decode(type: T.self, decoder: decoder)
         .receive(on: DispatchQueue.main)
+        .decode(type: T.self, decoder: decoder)
         .eraseToAnyPublisher()
   }
 

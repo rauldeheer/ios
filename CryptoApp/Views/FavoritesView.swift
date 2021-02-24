@@ -14,7 +14,7 @@ struct FavoritesView: View {
       }
     } else {
       List(favoriteViewModel.coins, id: \.id) { coin in
-        Row(coin: coin)
+        Row(coin, favoriteView: true)
       }
     }
   }

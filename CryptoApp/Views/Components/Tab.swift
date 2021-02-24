@@ -12,6 +12,7 @@ struct Tab<Content: View>: View {
       content()
           .navigationTitle(navigationTitle)
     }
+        .navigationViewStyle(StackNavigationViewStyle())
         .tabItem {
           VStack {
             Image(systemName: icon)

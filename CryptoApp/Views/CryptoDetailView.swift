@@ -2,29 +2,51 @@ import SwiftUI
 
 struct CryptoDetailView: View {
   @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
+  @ObservedObject private var viewModel = DetailViewModel()
 
   var coin: CryptoModel
+  var favoriteView: Bool
+
+  init(_ coin: CryptoModel, favoriteView: Bool = false) {
+    self.coin = coin
+    self.favoriteView = favoriteView
+  }
 
   var body: some View {
-    VStack {
-      HStack {
-        Text(coin.price)
+    Group {
+      if !favoriteView || viewModel.coin != nil {
+        let currentCoin: CryptoModel = favoriteView ? viewModel.coin! : coin
 
-        Spacer()
+        VStack {
+          HStack {
+            Text(currentCoin.price)
+
+            Spacer()
+          }
+              .padding(.horizontal)
+              .padding(.vertical, 10)
+
+          Spacer()
+        }
+      } else {
+        ProgressView()
       }
-      .padding(.horizontal)
-      .padding(.vertical, 10)
-
-      Spacer()
     }
         .navigationTitle(coin.name)
         .navigationBarItems(trailing: FavoriteButton(toggle: { favoriteViewModel.toggleFavorite(coin) }, isFavorite: favoriteViewModel.contains(coin)))
+        .onAppear(perform: { getDetails() })
+  }
+
+  private func getDetails() {
+    if favoriteView {
+      viewModel.load(coin: coin.id)
+    }
   }
 }
 
 struct CryptoDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    CryptoDetailView(coin: CryptoModel(
+    CryptoDetailView(CryptoModel(
         CryptoContainer(
             id: 1,
             name: "Bitcoin",

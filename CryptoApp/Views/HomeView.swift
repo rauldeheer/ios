@@ -5,14 +5,16 @@ struct HomeView: View {
   @State private var popover = false
 
   var body: some View {
-    if viewModel.coins.isEmpty {
-      ProgressView()
-    } else {
-      List(viewModel.coins, id: \.id) { coin in
-        Row(coin: coin)
-            .navigationBarItems(leading: leading(), trailing: trailing())
+    Group {
+      if viewModel.coins.isEmpty {
+        ProgressView()
+      } else {
+        List(viewModel.coins, id: \.id) { coin in
+          Row(coin)
+        }
       }
     }
+        .navigationBarItems(leading: leading(), trailing: trailing())
   }
 
   private func leading() -> some View {
@@ -23,7 +25,10 @@ struct HomeView: View {
     }) {
       ForEach(viewModel.sorters, id: \.slug) { sorter in
         GeometryReader { geometry in
-          Button(action: { viewModel.selectNewSorter(newSorter: sorter) }) {
+          Button(action: {
+            viewModel.selectNewSorter(sorter)
+            popover.toggle()
+          }) {
             VStack {
               Spacer()
 

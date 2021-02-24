@@ -72,15 +72,20 @@ struct Popover<Content: View, PopoverContent: View>: View {
       guard popoverVC == nil else {
         return
       }
+
       let vc = UIHostingController(rootView: popoverContent())
+
       if let size = popoverSize {
         vc.preferredContentSize = size
       }
+
       vc.modalPresentationStyle = UIModalPresentationStyle.popover
+
       if let popover = vc.popoverPresentationController {
         popover.sourceView = view
         popover.delegate = self
       }
+
       popoverVC = vc
       present(vc, animated: true, completion: nil)
     }
@@ -89,6 +94,7 @@ struct Popover<Content: View, PopoverContent: View>: View {
       guard let vc = popoverVC, !vc.isBeingDismissed else {
         return
       }
+
       vc.dismiss(animated: true, completion: nil)
       popoverVC = nil
     }
@@ -100,6 +106,7 @@ struct Popover<Content: View, PopoverContent: View>: View {
 
     func updateSize(_ size: CGSize?) {
       popoverSize = size
+
       if let vc = popoverVC, let size = size {
         vc.preferredContentSize = size
       }

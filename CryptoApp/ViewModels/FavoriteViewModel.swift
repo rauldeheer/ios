@@ -3,7 +3,6 @@ import Combine
 
 class FavoriteViewModel: ObservableObject {
   private let favoriteService = FavoriteService()
-  private let portfolioService = PortfolioService()
 
   @Published var coins = [CryptoModel]()
 
@@ -13,6 +12,14 @@ class FavoriteViewModel: ObservableObject {
 
   func toggleFavorite(_ coin: CryptoModel) {
     contains(coin) ? remove(coin) : add(coin)
+  }
+
+  func getIfContains(_ coin: CryptoModel) -> CryptoModel? {
+    if contains(coin) {
+      return favoriteService.get(coin)
+    }
+
+    return nil
   }
 
   func add(_ coin: CryptoModel) -> Void {
@@ -27,11 +34,7 @@ class FavoriteViewModel: ObservableObject {
     favoriteService.contains(coins, id: coin.id)
   }
 
-  func getPortfolioBy(_ coin: CryptoModel) -> String {
-    String(portfolioService.getPortfolioBy(coin: coin))
-  }
-
-  func setPortfolioFor(_ coin: CryptoModel, amount: String) -> Void {
-    portfolioService.savePortfolioFor(coin: coin, amount)
+  func updatePortfolio(_ coin: CryptoModel, amount: Double) -> Void {
+    coins = favoriteService.update(coins, coin: CryptoModel(coin.raw, ownedAmount: amount))
   }
 }

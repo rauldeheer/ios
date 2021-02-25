@@ -2,9 +2,11 @@ import Foundation
 
 struct CryptoModel {
   private let coin: CryptoContainer
+  private let ownedAmount: Double
 
-  init(_ coin: CryptoContainer) {
+  init(_ coin: CryptoContainer, ownedAmount: Double = 0) {
     self.coin = coin
+    self.ownedAmount = ownedAmount
   }
 
   var id: Int {
@@ -59,5 +61,13 @@ struct CryptoModel {
 
   var rank: String {
     String(coin.rank)
+  }
+
+  var portfolioAmount: String {
+    String(ownedAmount)
+  }
+
+  var rawAmount: Double {
+    ownedAmount
   }
 }

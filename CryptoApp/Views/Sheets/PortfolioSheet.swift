@@ -1,16 +1,22 @@
 import SwiftUI
 
 struct PortfolioSheet: View {
-  @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
-  @State private var quantity: String
+  @State private var quantity: String = ""
+  @Binding private var favoriteViewModel: FavoriteViewModel
+  private var coin: CryptoModel
 
-  private let coin: CryptoModel
   @Binding var isPresented: Bool
 
-  init(coin: CryptoModel, isPresented: Binding<Bool>) {
+  init(coin: CryptoModel, isPresented: Binding<Bool>, viewModel: Binding<FavoriteViewModel>) {
+    self._isPresented = isPresented
+    _favoriteViewModel = viewModel
     self.coin = coin
-    self.isPresented = isPresented
-    quantity = favoriteViewModel.getPortfolioBy(coin)
+
+    let favCoin = favoriteViewModel.getIfContains(coin)
+
+    if favCoin != nil {
+      self.coin = favCoin!
+    }
   }
 
   var body: some View {
@@ -39,7 +45,11 @@ struct PortfolioSheet: View {
   }
 
   private func update() {
-    favoriteViewModel.setPortfolioFor(coin, amount: quantity)
+    guard let amount = Double(quantity) else {
+      return
+    }
+
+    favoriteViewModel.updatePortfolio(coin, amount: amount)
     isPresented = false
   }
 }
@@ -51,9 +61,26 @@ struct PortfolioSheet_Previews: PreviewProvider {
 
   struct PreviewWrapper: View {
     @State var isPresented = false
+    @State var viewModel = FavoriteViewModel()
 
     var body: some View {
-      PortfolioSheet()
+      PortfolioSheet(coin: CryptoModel(
+          CryptoContainer(
+              id: 1,
+              name: "Bitcoin",
+              symbol: "BTC",
+              circulatingSupply: 200,
+              maxSupply: 230,
+              marketPairs: 200,
+              rank: 1,
+              quote: QuoteContainer(
+                  USD: UsdContainer(
+                      percentChange7d: 15.0,
+                      price: 200.0
+                  )
+              )
+          )
+      ), isPresented: $isPresented, viewModel: $viewModel)
     }
   }
 }

@@ -31,23 +31,25 @@ struct CryptoDetailView: View {
 
           InformationEntry(icon: "number", label: "Pairs", value: currentCoin.marketPairs)
 
-          Section(header: Text("Portfolio")) {
-            InformationEntry(icon: "number", label: "Quantity", value: currentCoin.marketPairs)
+          if favoriteViewModel.contains(coin) {
+            Section(header: Text("Portfolio")) {
+              InformationEntry(icon: "number", label: "Quantity", value: currentCoin.marketPairs)
 
-            InformationEntry(icon: "line.diagonal.arrow", label: "Value", value: currentCoin.marketPairs)
+              InformationEntry(icon: "line.diagonal.arrow", label: "Value", value: currentCoin.marketPairs)
 
-            HStack {
-              Spacer()
+              HStack {
+                Spacer()
 
-              Button(action: { portfolioOpen.toggle() }) {
-                Text("Update portfolio")
+                Button(action: { portfolioOpen.toggle() }) {
+                  Text("Update portfolio")
+                }
+
+                Spacer()
               }
-
-              Spacer()
+                  .sheet(isPresented: $portfolioOpen, onDismiss: { portfolioOpen = false }) {
+                    PortfolioSheet(coin: currentCoin, isPresented: $portfolioOpen, viewModel: $favoriteViewModel)
+                  }
             }
-             .sheet(isPresented: $portfolioOpen, onDismiss: { portfolioOpen = false }) {
-               PortfolioSheet(coin: currentCoin, isPresented: $portfolioOpen)
-             }
           }
         }
             .listStyle(InsetGroupedListStyle())

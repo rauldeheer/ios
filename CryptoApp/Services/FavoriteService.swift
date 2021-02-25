@@ -7,9 +7,9 @@ final class FavoriteService {
     var coins: [CryptoModel] = []
 
     if let data = UserDefaults.standard.data(forKey: saveKey) {
-      if let decoded = try? JSONDecoder().decode([CryptoContainer].self, from: data) {
-        coins = decoded.map { coin in
-          CryptoModel(coin)
+      if let decoded = try? JSONDecoder().decode([FavoriteContainer].self, from: data) {
+        coins = decoded.map { container in
+          CryptoModel(container.coin, ownedAmount: container.ownedAmount)
         }
       }
     }
@@ -33,11 +33,27 @@ final class FavoriteService {
     }))
   }
 
+  func update(_ coins: [CryptoModel], coin: CryptoModel) -> [CryptoModel] {
+    var updatedCoins = coins.filter({ p in
+      p.id != coin.id
+    })
+
+    updatedCoins.append(coin)
+
+    return save(updatedCoins)
+  }
+
+  func get(_ coin: CryptoModel) -> CryptoModel? {
+    getCoins().first(where: { p in
+      p.id == coin.id
+    })
+  }
+
   private func save(_ coins: [CryptoModel]) -> [CryptoModel] {
-    var cryptoContainers: [CryptoContainer] = []
+    var cryptoContainers: [FavoriteContainer] = []
 
     coins.forEach { coin in
-      cryptoContainers.append(coin.raw)
+      cryptoContainers.append(FavoriteContainer(coin: coin.raw, ownedAmount: coin.rawAmount))
     }
 
     if let encoded = try? JSONEncoder().encode(cryptoContainers) {

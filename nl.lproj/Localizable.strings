@@ -10,3 +10,5 @@
 "coin" = "Coin";
 "amount_owned" = "Aantal munten in portfolio";
 "update" = "Bijwerken";
+"favorite_coins" = "Favorieten";
+"all_coins" = "Alle munten";

@@ -40,6 +40,7 @@
 /* Begin PBXFileReference section */
 		3B64D4C825E7FF1D00F8A6B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3B64D4CF25E7FF6400F8A6B3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3B64D4D425E81DD800F8A6B3 /* CryptoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoApp.entitlements; sourceTree = "<group>"; };
 		7211A034C45229F02C495604 /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		7211A072B43082576E5C6E85 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7211A09A45B6B6D249B75FE3 /* InformationEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationEntry.swift; sourceTree = "<group>"; };
@@ -182,6 +183,7 @@
 		7211AFC02F0727C8052082EE /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				3B64D4D425E81DD800F8A6B3 /* CryptoApp.entitlements */,
 				3B64D4D025E7FF6400F8A6B3 /* Localizable.strings */,
 				3B64D4C925E7FF1D00F8A6B3 /* Localizable.strings */,
 				7211AD401817E764FF08BC43 /* Info.plist */,
@@ -439,6 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoApp/CryptoApp.entitlements;
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoApp/Preview Content\"";
 				DEVELOPMENT_TEAM = BHQLT64FNN;
 				ENABLE_PREVIEWS = YES;
@@ -447,6 +450,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.CryptoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -457,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoApp/CryptoApp.entitlements;
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoApp/Preview Content\"";
 				DEVELOPMENT_TEAM = BHQLT64FNN;
 				ENABLE_PREVIEWS = YES;
@@ -465,6 +470,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.CryptoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

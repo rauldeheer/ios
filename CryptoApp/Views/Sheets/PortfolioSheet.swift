@@ -25,6 +25,7 @@ struct PortfolioSheet: View {
           Section(header: Text("portfolio")) {
             TextField("amount_owned", text: $quantity)
                 .multilineTextAlignment(.center)
+                .keyboardType(.decimalPad)
           }
         }
             .listStyle(InsetGroupedListStyle())

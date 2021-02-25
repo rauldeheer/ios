@@ -10,3 +10,5 @@
 "coin" = "Coin";
 "amount_owned" = "Amount of owned coins";
 "update" = "Update";
+"favorite_coins" = "Favorites";
+"all_coins" = "All coins";

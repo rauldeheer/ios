@@ -3,8 +3,8 @@ import SwiftUI
 struct Tab<Content: View>: View {
   let icon: String
   let tag: Int
-  let label: String
-  let navigationTitle: String
+  let label: LocalizedStringKey
+  let navigationTitle: LocalizedStringKey
   let content: () -> Content
 
   var body: some View {

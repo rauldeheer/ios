@@ -6,11 +6,11 @@ struct ContentView: View {
 
   var body: some View {
     TabView(selection: $selection) {
-      Tab(icon: "bitcoinsign.circle", tag: 0, label: "All", navigationTitle: "All coins") {
+      Tab(icon: "bitcoinsign.circle", tag: 0, label: "All", navigationTitle: "all_coins") {
         HomeView()
       }
 
-      Tab(icon: "star", tag: 1, label: "Favorites", navigationTitle: "Favorite coins") {
+      Tab(icon: "star", tag: 1, label: "Favorites", navigationTitle: "favorite_coins") {
         FavoritesView()
       }
     }
@@ -21,5 +21,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
+        .environment(\.locale, .init(identifier: "nl"))
   }
 }

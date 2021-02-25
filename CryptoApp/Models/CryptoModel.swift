@@ -70,4 +70,9 @@ struct CryptoModel {
   var rawAmount: Double {
     ownedAmount
   }
+
+  var totalValue: String {
+    let priceSplit = String(ownedAmount * coin.quote.USD.price).split(separator: ".")
+    return String(format: "$%.\(priceSplit[0].prefix(1) != "0" ? 2 : 6)f", ownedAmount * coin.quote.USD.price)
+  }
 }

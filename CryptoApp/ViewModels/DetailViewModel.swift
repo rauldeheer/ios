@@ -10,7 +10,6 @@ class DetailViewModel: ObservableObject {
 
   func load(coin: Int) {
     cancellable = cryptoService.getCoin(coin).sink(receiveCompletion: { completion in
-      print("detail \(completion)")
     }, receiveValue: { coin in
       guard let container = coin.data.first else {
         return

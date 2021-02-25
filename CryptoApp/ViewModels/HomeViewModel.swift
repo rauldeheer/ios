@@ -46,7 +46,6 @@ class HomeViewModel: ObservableObject {
     coins = []
 
     cancellable = cryptoService.getLatestListings(sorter, desc: sortDesc).sink(receiveCompletion: { completion in
-      print("home \(completion)")
     }, receiveValue: { cryptoContainers in
       self.coins = cryptoContainers.data.map { cryptoContainer in
         CryptoModel(cryptoContainer)

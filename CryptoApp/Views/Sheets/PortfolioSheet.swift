@@ -1,22 +1,15 @@
 import SwiftUI
 
 struct PortfolioSheet: View {
+  @EnvironmentObject private var stateViewModel: StateViewModel
   @State private var quantity: String = ""
-  @Binding private var favoriteViewModel: FavoriteViewModel
   private var coin: CryptoModel
 
   @Binding var isPresented: Bool
 
-  init(coin: CryptoModel, isPresented: Binding<Bool>, viewModel: Binding<FavoriteViewModel>) {
+  init(coin: CryptoModel, isPresented: Binding<Bool>) {
     self._isPresented = isPresented
-    _favoriteViewModel = viewModel
     self.coin = coin
-
-    let favCoin = favoriteViewModel.getIfContains(coin)
-
-    if favCoin != nil {
-      self.coin = favCoin!
-    }
   }
 
   var body: some View {
@@ -42,6 +35,9 @@ struct PortfolioSheet: View {
             Text("Update")
           })
     }
+      .onAppear {
+        quantity = stateViewModel.getIfContains(coin)?.portfolioAmount ?? ""
+      }
   }
 
   private func update() {
@@ -49,7 +45,7 @@ struct PortfolioSheet: View {
       return
     }
 
-    favoriteViewModel.updatePortfolio(coin, amount: amount)
+    stateViewModel.updatePortfolio(coin, amount: amount)
     isPresented = false
   }
 }
@@ -61,7 +57,7 @@ struct PortfolioSheet_Previews: PreviewProvider {
 
   struct PreviewWrapper: View {
     @State var isPresented = false
-    @State var viewModel = FavoriteViewModel()
+    @State var viewModel = StateViewModel()
 
     var body: some View {
       PortfolioSheet(coin: CryptoModel(
@@ -80,7 +76,7 @@ struct PortfolioSheet_Previews: PreviewProvider {
                   )
               )
           )
-      ), isPresented: $isPresented, viewModel: $viewModel)
+      ), isPresented: $isPresented)
     }
   }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CryptoDetailView: View {
-  @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
+  @EnvironmentObject private var stateViewModel: StateViewModel
   @ObservedObject private var viewModel = DetailViewModel()
   @State private var portfolioOpen = false
 
@@ -15,7 +15,7 @@ struct CryptoDetailView: View {
 
   var body: some View {
     Group {
-      if !favoriteView || viewModel.coin != nil {
+      if (!favoriteView || viewModel.coin != nil) || (favoriteView && viewModel.coin == nil) {
         let currentCoin: CryptoModel = favoriteView && viewModel.coin != nil ? viewModel.coin! : coin
 
         List {
@@ -31,11 +31,11 @@ struct CryptoDetailView: View {
 
           InformationEntry(icon: "number", label: "Pairs", value: currentCoin.marketPairs)
 
-          if favoriteViewModel.contains(coin) {
+          if stateViewModel.contains(coin) {
             Section(header: Text("Portfolio")) {
-              InformationEntry(icon: "number", label: "Quantity", value: currentCoin.marketPairs)
+              InformationEntry(icon: "number", label: "Quantity", value: stateViewModel.getIfContains(coin)?.portfolioAmount ?? "")
 
-              InformationEntry(icon: "line.diagonal.arrow", label: "Value", value: currentCoin.marketPairs)
+              InformationEntry(icon: "line.diagonal.arrow", label: "Value", value: stateViewModel.getIfContains(coin)?.totalValue ?? "")
 
               HStack {
                 Spacer()
@@ -47,7 +47,7 @@ struct CryptoDetailView: View {
                 Spacer()
               }
                   .sheet(isPresented: $portfolioOpen, onDismiss: { portfolioOpen = false }) {
-                    PortfolioSheet(coin: currentCoin, isPresented: $portfolioOpen, viewModel: $favoriteViewModel)
+                    PortfolioSheet(coin: currentCoin, isPresented: $portfolioOpen)
                   }
             }
           }
@@ -58,14 +58,12 @@ struct CryptoDetailView: View {
       }
     }
         .navigationTitle(coin.name)
-        .navigationBarItems(trailing: FavoriteButton(toggle: { favoriteViewModel.toggleFavorite(coin) }, isFavorite: favoriteViewModel.contains(coin)))
-        .onAppear(perform: { getDetails() })
-  }
-
-  private func getDetails() {
-    if favoriteView {
-      viewModel.load(coin: coin.id)
-    }
+        .navigationBarItems(trailing: FavoriteButton(toggle: { stateViewModel.toggleFavorite(coin) }, isFavorite: stateViewModel.contains(coin)))
+        .onAppear {
+          if favoriteView && viewModel.coin == nil {
+            viewModel.load(coin: coin.id)
+          }
+        }
   }
 }
 

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct Row: View {
-  @EnvironmentObject private var favoriteViewModel: FavoriteViewModel
+  @EnvironmentObject private var stateViewModel: StateViewModel
 
   let coin: CryptoModel
   let favoriteView: Bool
@@ -49,7 +49,7 @@ struct Row: View {
           Spacer()
         }
 
-        FavoriteButton(toggle: { favoriteViewModel.toggleFavorite(coin) }, isFavorite: favoriteViewModel.contains(coin))
+        FavoriteButton(toggle: { stateViewModel.toggleFavorite(coin) }, isFavorite: stateViewModel.contains(coin))
       }
     }
   }

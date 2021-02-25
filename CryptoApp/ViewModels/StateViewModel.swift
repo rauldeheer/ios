@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-class FavoriteViewModel: ObservableObject {
+class StateViewModel: ObservableObject {
   private let favoriteService = FavoriteService()
 
   @Published var coins = [CryptoModel]()

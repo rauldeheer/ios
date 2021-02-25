@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  private var favoriteViewModel = FavoriteViewModel()
+  private var stateViewModel = StateViewModel()
   @State private var selection = 0
 
   var body: some View {
@@ -14,7 +14,7 @@ struct ContentView: View {
         FavoritesView()
       }
     }
-        .environmentObject(favoriteViewModel)
+        .environmentObject(stateViewModel)
   }
 }
 

@@ -6,7 +6,7 @@ struct FavoritesView: View {
   var body: some View {
     if stateViewModel.coins.isEmpty {
       VStack {
-        Text("You did not add any coins to your favorites yet, please use the star button on any page to add the coin to this page! ⭐️")
+        Text("no_favorites")
             .multilineTextAlignment(.leading)
             .padding(.horizontal)
 

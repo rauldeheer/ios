@@ -16,23 +16,23 @@ struct PortfolioSheet: View {
     NavigationView {
       VStack {
         List {
-          Section(header: Text("Coin")) {
+          Section(header: Text("coin")) {
             InformationEntry(icon: "a.circle", label: "Name", value: coin.name)
 
             InformationEntry(icon: "seal", label: "Symbol", value: coin.symbol)
           }
 
-          Section(header: Text("Portfolio")) {
-            TextField("Amount of owned coins", text: $quantity)
+          Section(header: Text("portfolio")) {
+            TextField("amount_owned", text: $quantity)
                 .multilineTextAlignment(.center)
           }
         }
             .listStyle(InsetGroupedListStyle())
       }
-          .navigationTitle("Portfolio")
+          .navigationTitle("portfolio")
           .navigationBarTitleDisplayMode(.inline)
           .navigationBarItems(trailing: Button(action: { update() }) {
-            Text("Update")
+            Text("update")
           })
     }
       .onAppear {

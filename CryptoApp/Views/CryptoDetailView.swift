@@ -19,29 +19,29 @@ struct CryptoDetailView: View {
         let currentCoin: CryptoModel = favoriteView && viewModel.coin != nil ? viewModel.coin! : coin
 
         List {
-          InformationEntry(icon: "chevron.up.chevron.down", label: "Ranking", value: currentCoin.rank)
+          InformationEntry(icon: "chevron.up.chevron.down", label: "ranking", value: currentCoin.rank)
 
-          InformationEntry(icon: "seal", label: "Symbol", value: currentCoin.symbol)
+          InformationEntry(icon: "seal", label: "symbol", value: currentCoin.symbol)
 
-          InformationEntry(icon: "dollarsign.circle", label: "Price", value: currentCoin.price)
+          InformationEntry(icon: "dollarsign.circle", label: "price", value: currentCoin.price)
 
-          InformationEntry(icon: "arrow.triangle.2.circlepath", label: "Circulating", value: currentCoin.totalSupply)
+          InformationEntry(icon: "arrow.triangle.2.circlepath", label: "circulating", value: currentCoin.totalSupply)
 
-          InformationEntry(icon: "multiply", label: "Max", value: currentCoin.maxSupply)
+          InformationEntry(icon: "multiply", label: "max", value: currentCoin.maxSupply)
 
-          InformationEntry(icon: "number", label: "Pairs", value: currentCoin.marketPairs)
+          InformationEntry(icon: "number", label: "pairs", value: currentCoin.marketPairs)
 
           if stateViewModel.contains(coin) {
-            Section(header: Text("Portfolio")) {
-              InformationEntry(icon: "number", label: "Quantity", value: stateViewModel.getIfContains(coin)?.portfolioAmount ?? "")
+            Section(header: Text("portfolio")) {
+              InformationEntry(icon: "number", label: "quantity", value: stateViewModel.getIfContains(coin)?.portfolioAmount ?? "")
 
-              InformationEntry(icon: "line.diagonal.arrow", label: "Value", value: stateViewModel.getIfContains(coin)?.totalValue ?? "")
+              InformationEntry(icon: "line.diagonal.arrow", label: "value", value: stateViewModel.getIfContains(coin)?.totalValue ?? "")
 
               HStack {
                 Spacer()
 
                 Button(action: { portfolioOpen.toggle() }) {
-                  Text("Update portfolio")
+                  Text("update_portfolio")
                 }
 
                 Spacer()

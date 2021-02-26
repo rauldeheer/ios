@@ -14,3 +14,16 @@
 "all_coins" = "Alle munten";
 "quantity" = "Aantal";
 "value" = "Waarde";
+"sort_methods" = "Sorteer methoden";
+"vlm30d" = "Vlm30d";
+"vlm7d" = "Vlm7d";
+"vlm24h" = "Vlm24u";
+"prc7d" = "Prc7d";
+"prc24h" = "Prc24u";
+"prc1h" = "Prc1u";
+"volume_30_days" = "Volume 30 dagen";
+"volume_7_days" = "Volume 7 dagen";
+"volume_24_hours" = "Volume 24 uur";
+"change_7_days" = "Verandering 7 dagen";
+"change_24_hours" = "Verandering 24 uur";
+"change_1_hour" = "Verandering 1 uur";

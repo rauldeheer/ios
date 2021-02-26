@@ -10,7 +10,7 @@ class HomeViewModel: ObservableObject {
     }
   }
 
-  @Published var sorter: SortModel = SortModel((slug: "Vlm30d", name: "Volume 30 days", param: "volume_30d")) {
+  @Published var sorter: SortModel = SortModel((slug: "vlm30d", name: "volume_30_days", param: "volume_30d")) {
     didSet {
       getCoins()
     }
@@ -19,12 +19,12 @@ class HomeViewModel: ObservableObject {
   @Published var coins = [CryptoModel]()
   @Published var sorters = [SortModel](
       [
-        SortModel((slug: "Vlm30d", name: "Volume 30 days", param: "volume_30d")),
-        SortModel((slug: "Vlm7d", name: "Volume 7 days", param: "volume_7d")),
-        SortModel((slug: "Vlm24h", name: "Volume 24 hours", param: "volume_24h")),
-        SortModel((slug: "Prc7d", name: "Change 7 days", param: "percent_change_7d")),
-        SortModel((slug: "Prc24h", name: "Change 24 hours", param: "percent_change_24h")),
-        SortModel((slug: "Prc1h", name: "Change 1 hour", param: "percent_change_1h"))
+        SortModel((slug: "vlm30d", name: "volume_30_days", param: "volume_30d")),
+        SortModel((slug: "vlm7d", name: "volume_7_days", param: "volume_7d")),
+        SortModel((slug: "vlm24h", name: "volume_24_hours", param: "volume_24h")),
+        SortModel((slug: "prc7d", name: "change_7_days", param: "percent_change_7d")),
+        SortModel((slug: "prc24h", name: "change_24_hours", param: "percent_change_24h")),
+        SortModel((slug: "prc1h", name: "change_1_hour", param: "percent_change_1h"))
       ]
   )
 

@@ -11,7 +11,7 @@ struct SortSheet: View {
       List(sorters, id: \.slug) { sorter in
         Button(action: { update(sorter) }) {
           HStack {
-            Text(sorter.name)
+            Text(LocalizedStringKey(sorter.name))
 
             Spacer()
 
@@ -21,7 +21,7 @@ struct SortSheet: View {
           }
         }
       }
-          .navigationTitle("portfolio")
+          .navigationTitle("sort_methods")
           .navigationBarTitleDisplayMode(.inline)
     }
   }
@@ -34,7 +34,7 @@ struct SortSheet: View {
 
 struct SortSheet_Previews: PreviewProvider {
   private static func selected(_ sorter: SortModel) -> Bool {
-    return true
+    true
   }
 
   private static func selectNewSorter(_ newSorter: SortModel) -> Void {

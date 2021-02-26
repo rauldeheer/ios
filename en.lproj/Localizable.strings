@@ -14,3 +14,16 @@
 "all_coins" = "All coins";
 "quantity" = "Amount";
 "value" = "Value";
+"sort_methods" = "Sort methods";
+"vlm30d" = "Vlm30d";
+"vlm7d" = "Vlm7d";
+"vlm24h" = "Vlm24h";
+"prc7d" = "Prc7d";
+"prc24h" = "Prc24h";
+"prc1h" = "Prc1h";
+"volume_30_days" = "Volume 30 days";
+"volume_7_days" = "Volume 7 days";
+"volume_24_hours" = "Volume 24 hours";
+"change_7_days" = "Change 7 days";
+"change_24_hours" = "Change 24 hours";
+"change_1_hour" = "Change 1 hour";

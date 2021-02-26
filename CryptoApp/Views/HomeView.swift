@@ -21,7 +21,7 @@ struct HomeView: View {
 
   private func leading() -> some View {
     Button(action: { popover = true }) {
-      Text(viewModel.sorter.slug)
+      Text(LocalizedStringKey(viewModel.sorter.slug))
     }
         .sheet(isPresented: $popover) {
           SortSheet(sorters: viewModel.sorters, selected: viewModel.selected, selectNewSorter: viewModel.selectNewSorter, isPresented: $popover)

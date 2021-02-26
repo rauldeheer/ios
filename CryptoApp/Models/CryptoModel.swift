@@ -53,7 +53,7 @@ struct CryptoModel {
 
   var maxSupply: String {
     guard let supply = coin.maxSupply else {
-      return ""
+      return "unlimited"
     }
 
     return String(supply)

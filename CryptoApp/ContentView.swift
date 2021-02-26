@@ -6,11 +6,11 @@ struct ContentView: View {
 
   var body: some View {
     TabView(selection: $selection) {
-      Tab(icon: "bitcoinsign.circle", tag: 0, label: "All", navigationTitle: "all_coins") {
+      Tab(icon: "bitcoinsign.circle", tag: 0, label: "all_coins", navigationTitle: "all_coins") {
         HomeView()
       }
 
-      Tab(icon: "star", tag: 1, label: "Favorites", navigationTitle: "favorite_coins") {
+      Tab(icon: "star", tag: 1, label: "favorite_coins", navigationTitle: "favorite_coins") {
         FavoritesView()
       }
     }

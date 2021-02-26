@@ -11,8 +11,8 @@ struct Tab<Content: View>: View {
     NavigationView {
       content()
           .navigationTitle(navigationTitle)
+          .navigationBarTitleDisplayMode(.automatic)
     }
-        .navigationViewStyle(StackNavigationViewStyle())
         .tabItem {
           VStack {
             Image(systemName: icon)

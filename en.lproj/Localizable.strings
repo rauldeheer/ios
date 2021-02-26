@@ -12,3 +12,5 @@
 "update" = "Update";
 "favorite_coins" = "Favorites";
 "all_coins" = "All coins";
+"quantity" = "Amount";
+"value" = "Value";

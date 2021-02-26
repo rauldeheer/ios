@@ -3,7 +3,7 @@ import Combine
 
 final class ApiService {
   func receiveData<T: Decodable>(_ url: URL, method: String = "GET") -> AnyPublisher<T, Error> {
-    guard let apiKey = ProcessInfo.processInfo.environment["api_key"] else {
+    guard let apiKey = Bundle.main.infoDictionary!["API_KEY"] as? String else {
       fatalError("Please specify a API key")
     }
 

@@ -15,6 +15,6 @@ struct FavoriteButton: View {
 
 struct FavoriteButton_Previews: PreviewProvider {
   static var previews: some View {
-    FavoriteButton(toggle: { }, isFavorite: false)
+    FavoriteButton(toggle: {}, isFavorite: false)
   }
 }

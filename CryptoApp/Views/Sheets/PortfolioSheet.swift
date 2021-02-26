@@ -36,13 +36,15 @@ struct PortfolioSheet: View {
             Text("update")
           })
     }
-      .onAppear {
-        quantity = stateViewModel.getIfContains(coin)?.portfolioAmount ?? ""
-      }
+        .onAppear {
+          quantity = stateViewModel.getIfContains(coin)?.portfolioAmount ?? ""
+        }
   }
 
   private func update() {
-    guard let amount = Double(quantity) else {
+    let replacedQuantity = quantity.replacingOccurrences(of: ",", with: ".")
+
+    guard let amount = Double(replacedQuantity) else {
       return
     }
 

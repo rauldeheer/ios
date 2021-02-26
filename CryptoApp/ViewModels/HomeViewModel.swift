@@ -34,7 +34,7 @@ class HomeViewModel: ObservableObject {
     getCoins()
   }
 
-  func selected(sorter: SortModel) -> Bool {
+  func selected(_ sorter: SortModel) -> Bool {
     sorter.slug == self.sorter.slug
   }
 

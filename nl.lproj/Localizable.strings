@@ -12,3 +12,5 @@
 "update" = "Bijwerken";
 "favorite_coins" = "Favorieten";
 "all_coins" = "Alle munten";
+"quantity" = "Aantal";
+"value" = "Waarde";

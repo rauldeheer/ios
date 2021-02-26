@@ -15,33 +15,17 @@ struct HomeView: View {
             .id(UUID())
       }
     }
+        .listStyle(PlainListStyle())
         .navigationBarItems(leading: leading(), trailing: trailing())
   }
 
   private func leading() -> some View {
-    Popover(showPopover: $popover, popoverSize: CGSize(width: 175, height: viewModel.sorters.count * 40), content: {
-      Button(action: { popover.toggle() }) {
-        Text(viewModel.sorter.slug)
-      }
-    }) {
-      ForEach(viewModel.sorters, id: \.slug) { sorter in
-        GeometryReader { geometry in
-          Button(action: {
-            viewModel.selectNewSorter(sorter)
-            popover.toggle()
-          }) {
-            VStack {
-              Spacer()
-
-              Text(sorter.name)
-
-              Spacer()
-            }
-                .padding(.horizontal, 7)
-          }
-        }
-      }
+    Button(action: { popover = true }) {
+      Text(viewModel.sorter.slug)
     }
+        .sheet(isPresented: $popover) {
+          SortSheet(sorters: viewModel.sorters, selected: viewModel.selected, selectNewSorter: viewModel.selectNewSorter, isPresented: $popover)
+        }
   }
 
   private func trailing() -> some View {

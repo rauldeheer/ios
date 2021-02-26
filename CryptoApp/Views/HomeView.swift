@@ -29,14 +29,9 @@ struct HomeView: View {
   }
 
   private func trailing() -> some View {
-    var animation: Animation {
-      .easeOut
-    }
-
-    return Button(action: { viewModel.sortDesc.toggle() }) {
+    Button(action: { viewModel.sortDesc.toggle() }) {
       Image(systemName: "arrow.down")
           .rotationEffect(Angle.degrees(viewModel.sortDesc ? 180 : 0))
-          .animation(animation)
     }
   }
 }

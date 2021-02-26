@@ -3,7 +3,11 @@ import Combine
 
 final class ApiService {
   func receiveData<T: Decodable>(_ url: URL, method: String = "GET") -> AnyPublisher<T, Error> {
-    guard let apiKey = Bundle.main.infoDictionary!["API_KEY"] as? String else {
+    guard let infoDictionary = Bundle.main.infoDictionary else {
+      fatalError("Info dictionary not available")
+    }
+
+    guard let apiKey = infoDictionary["API_KEY"] as? String else {
       fatalError("Please specify a API key")
     }
 
